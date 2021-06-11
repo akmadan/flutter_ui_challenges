@@ -10,14 +10,15 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
-      body: Center(
+      body: Align(
+          alignment: Alignment.bottomCenter,
           child: Container(
-        margin: EdgeInsets.all(15),
-        height: 250,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(boxShadow: AppColors.shadows),
-        child: Content(),
-      )),
+            margin: EdgeInsets.only(left: 18, right: 18, bottom: 100),
+            height: 250,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(boxShadow: AppColors.shadows),
+            child: Content(),
+          )),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:indeedappui/components/auth/components.dart';
+import 'package:indeedappui/pages/auth/login.dart';
+import 'package:indeedappui/pages/auth/register.dart';
 import 'package:indeedappui/utils/colors.dart';
 import 'package:indeedappui/utils/text.dart';
 
@@ -15,26 +18,15 @@ class _WelcomeState extends State<Welcome> {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-          colorFilter: new ColorFilter.mode(
-              Colors.black.withOpacity(0.8), BlendMode.color),
-          image: AssetImage('assets/bg.jpg'),
-          fit: BoxFit.cover,
-        )),
+                colorFilter: new ColorFilter.mode(
+                    Colors.black.withOpacity(0.1), BlendMode.dstATop),
+                image: AssetImage('assets/bg.jpg'),
+                fit: BoxFit.cover)),
         child: Stack(children: [
-          Positioned(
-            top: -400,
-            left: -100,
-            child: Container(
-              height: 1000,
-              width: 1000,
-              decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.5),
-                  shape: BoxShape.circle),
-            ),
-          ),
           Positioned(
               left: 0,
               right: 0,
@@ -42,42 +34,61 @@ class _WelcomeState extends State<Welcome> {
               child: Container(
                   margin: EdgeInsets.all(20),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Logo(),
+                      SizedBox(height: 20),
                       Container(
-                        width: double.infinity,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20)),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                              backgroundColor:
-                                  MaterialStateProperty.all(AppColors.primary)),
-                          child: modified_text(
-                              text: 'Register', size: 20, color: Colors.white),
-                          onPressed: () {},
-                        ),
+                        child: bolded_text(
+                            text: 'Welcome Back',
+                            size: 34,
+                            color: Colors.grey.shade900),
+                      ),
+                      Container(
+                        child: modified_text(
+                            text: 'Company Moto will go over here.',
+                            size: 18,
+                            color: Colors.grey.shade900),
+                      ),
+                      SizedBox(height: 20),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Register()));
+                        },
+                        child: Container(
+                            width: double.infinity,
+                            height: 55,
+                            decoration: BoxDecoration(
+                                color: AppColors.primary,
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Center(
+                                child: modified_text(
+                                    size: 18,
+                                    text: 'Register',
+                                    color: Colors.white))),
                       ),
                       SizedBox(height: 10),
-                      Container(
-                        width: double.infinity,
-                        height: 50,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                              backgroundColor:
-                                  MaterialStateProperty.all(Colors.white)),
-                          child: modified_text(
-                              text: 'Login',
-                              size: 20,
-                              color: AppColors.primary),
-                          onPressed: () {},
-                        ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Login()));
+                        },
+                        child: Container(
+                            width: double.infinity,
+                            height: 55,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: AppColors.primary),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Center(
+                                child: modified_text(
+                                    size: 18,
+                                    text: 'Login',
+                                    color: AppColors.primary))),
                       ),
                     ],
                   )))
