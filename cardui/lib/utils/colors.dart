@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color bgcolor = Colors.indigo.shade100;
+  static Color bgColor = Colors.green.shade200;
 
-  static List<BoxShadow> neumorpShadow = [
+  static List<BoxShadow> shadows = [
     BoxShadow(
         color: Colors.white.withOpacity(0.5),
         spreadRadius: -5,
         offset: Offset(-5, -5),
-        blurRadius: 30),
+        blurRadius: 25),
     BoxShadow(
-        color: Colors.blue.shade900.withOpacity(.2),
+        color: Colors.green.shade900.withOpacity(0.2),
         spreadRadius: 2,
         offset: Offset(7, 7),
-        blurRadius: 20)
+        blurRadius: 20),
   ];
 }
